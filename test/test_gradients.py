@@ -324,7 +324,6 @@ class TotalDerivTestsGaussAEPOpt(unittest.TestCase):
         sort_turbs = True
         wake_model_version = 2014
         expansion_factor = 3.
-        use_parallel_group=False
 
         # print("HERE 0")
         prob = Problem(root=OptAEP(nTurbines=nTurbines, nDirections=windDirections.size, nVertices=nVertices,
@@ -332,8 +331,7 @@ class TotalDerivTestsGaussAEPOpt(unittest.TestCase):
                                    params_IdepVar_func=add_gauss_params_IndepVarComps, differentiable=True,
                                    wake_model_options=wake_model_options,
                                    params_IndepVar_args={'nRotorPoints': nRotorPoints},
-                                   cp_curve_spline=cp_curve_spline, cp_points=cp_curve_cp.size,
-                                   use_parallel_group=False))
+                                   cp_curve_spline=cp_curve_spline, cp_points=cp_curve_cp.size))
         # print("HERE 1")
         # set up optimizer
         # prob.driver = pyOptSparseDriver()
